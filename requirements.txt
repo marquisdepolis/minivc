@@ -4,7 +4,7 @@ PyPDF2==3.0.1
 python-dotenv==1.0.0
 python_pptx==0.6.21
 Requests==2.31.0
-spacy==3.5.2
+spacy<=3.5.2
 streamlit==1.22.0
 tenacity==8.2.2
 tldextract==3.4.1
