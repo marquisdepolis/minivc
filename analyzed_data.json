@@ -326,6 +326,36 @@
                 "category": "Traction",
                 "edited_summary": "Following its public debut in September 2022, Consensus has garnered close to 200,000 registered users."
             }
+        ],
+        "2023-05-24 22:40": [
+            {
+                "category": "Team",
+                "edited_summary": "Team Members: Ali Farid (Founder and Lead Data Scientist, Machine Learning), Megan Van Welie (Lead Software Engineer), Eric Olson (Co-Founder and CEO), Brett Nebeker (Machine Learning Lead), and Christian Salem (Co-Founder and Chief Product Officer)."
+            },
+            {
+                "category": "Customers",
+                "edited_summary": "Clients: Consensus aims to serve individuals and organizations looking for expert knowledge from peer-reviewed scientific studies in diverse industries and fields. The given text does not mention particular customer segments or significant collaborations."
+            },
+            {
+                "category": "Product",
+                "edited_summary": "Product: Consensus Search Engine\n\nFeatures: The Consensus search engine aims to democratize scientific knowledge by providing access to peer-reviewed research articles. Utilizing AI technology, it simplifies complex findings, making it effortless for users to comprehend and utilize the information. The platform guarantees an uncluttered and concentrated user experience by being completely ad-free."
+            },
+            {
+                "category": "Market",
+                "edited_summary": "Information is currently unavailable."
+            },
+            {
+                "category": "Business Model",
+                "edited_summary": "Information not accessible"
+            },
+            {
+                "category": "Risks",
+                "edited_summary": "Potential challenges for Consensus include competition from alternative search engines and platforms offering access to scientific research, possible regulatory shifts impacting the AI and data privacy industries, and the ever-changing landscape of cyber threats and security issues."
+            },
+            {
+                "category": "Traction",
+                "edited_summary": "As of April 2023, Consensus has garnered close to 200,000 registered users since its product launch in September 2022. The company also revealed a seed funding round on April 25, 2023."
+            }
         ]
     },
     "https://consensus.app": {
@@ -357,6 +387,38 @@
             {
                 "category": "Traction",
                 "edited_summary": "Since its inception in September 2022, Consensus has garnered close to 200,000 registered users. On April 25, 2023, the company revealed a seed funding round and established collaborations with Semantic Scholar, SciScore, Centaur Labs, and Datasaur. A Slack community is available for users to interact with the team and fellow users. The company's future objectives involve addressing known limitations, incorporating more data into the product, and enhancing the user experience."
+            }
+        ]
+    },
+    "test": {
+        "2023-05-24 22:59": [
+            {
+                "category": "Team",
+                "edited_summary": "Information not available."
+            },
+            {
+                "category": "Customers",
+                "edited_summary": "Anodot mainly focuses on the telecommunications sector, catering to businesses that seek to safeguard their revenue by identifying irregularities in service quality and accessibility. The solution aims to enhance service standards, reduce overhead expenses, boost profitability, and guarantee customer retention and network efficiency."
+            },
+            {
+                "category": "Product",
+                "edited_summary": "Anodot provides a Realtime Business Incident Detection solution specifically designed for telecom companies to safeguard their revenue by identifying service quality and availability anomalies. The product utilizes automatic anomaly detection, real-time AI analytics, and a patented machine learning technique. It examines large amounts of network data from various sources, optimizes service levels, reduces overhead expenses, increases profitability, and guarantees customer loyalty and network performance. Anodot can analyze terabytes of isolated network data, monitor and correlate numerous business KPIs from different data sources, address roaming problems, detect revenue leakage, and obtain real-time insights from customer usage patterns and behavior. The solution is built to scale, managing millions of metrics and analyzing complex data such as network usage, data traffic volume, and text and multimedia messages. Benefits of using Anodot include quicker insights, enhanced customer experience and dependable services, improved customer relationships and loyalty, proactive identification of trends and issues, a brief integration process, and immediate value and new efficiencies."
+            },
+            {
+                "category": "Market",
+                "edited_summary": "Information is currently unavailable."
+            },
+            {
+                "category": "Business Model",
+                "edited_summary": "Information not accessible"
+            },
+            {
+                "category": "Risks",
+                "edited_summary": "Potential challenges for Anodot include competition from alternative AI-based anomaly detection systems, possible regulatory shifts in the telecommunications sector, and the development of cyber threats and security issues that may influence the efficacy of their real-time business incident detection."
+            },
+            {
+                "category": "Traction",
+                "edited_summary": "Information is currently unavailable."
             }
         ]
     }
