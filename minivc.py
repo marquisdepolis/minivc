@@ -18,7 +18,7 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 from pptx import Presentation
 from tenacity import retry, stop_after_attempt, wait_random_exponential
-# from tkinter import Tk, filedialog
+from tkinter import Tk, filedialog
 import readppt
 from dotenv import load_dotenv
 load_dotenv()
@@ -236,32 +236,35 @@ def read_pdf(file):
     cleaned_text = clean_text(text)
     return cleaned_text
 
-# def get_file_input(input_type):
-#     root = Tk()
-#     root.withdraw()
+def get_file_input(input_type):
+    root = Tk()
+    root.withdraw()
 
-#     if input_type == "pdf":
-#         file_path = filedialog.askopenfilename(filetypes=[("PDF files", "*.pdf")])
-#     elif input_type == "pptx":
-#         file_path = filedialog.askopenfilename(filetypes=[("PowerPoint files", "*.pptx")])
-#     else:
-#         raise ValueError("Invalid input type")
+    if input_type == "pdf":
+        file_path = filedialog.askopenfilename(filetypes=[("PDF files", "*.pdf")])
+    elif input_type == "pptx":
+        file_path = filedialog.askopenfilename(filetypes=[("PowerPoint files", "*.pptx")])
+    else:
+        raise ValueError("Invalid input type")
 
-#     return file_path
+    return file_path
 
-def analyze_input(input_type, company, file):
+def analyze_input(input_type, company, url):
     text = ""
     if input_type == "url":
         data = link(url)
     elif input_type in ["pdf", "pptx"]:
-        if not file:
+        file_path = get_file_input(input_type)
+        if not file_path:
             print("No file selected.")
             return
 
-        if input_type == "pdf":
-            text = read_pdf(file)
-        elif input_type == "pptx":
-            text = readppt.read_ppt(file.read())
+        with open(file_path, "rb") as file:
+            if input_type == "pdf":
+                text = read_pdf(file)
+            elif input_type == "pptx":
+                file_content = file.read()
+                text = readppt.read_ppt(file_content)
         data = recursive_analyze(text)
     else:
         raise ValueError("Invalid input type")
@@ -292,7 +295,7 @@ def save_data(filename, company, data):
     with open(filename, "w") as f:
         json.dump(all_data, f, indent=4)
 
-def run(input_type, company, url=None, file=None):
+def run(input_type, company, url):
     if not company:
         st.write("No company name provided.")
         return
@@ -301,19 +304,25 @@ def run(input_type, company, url=None, file=None):
         st.write(f"Invalid input type: {input_type}")
         return
 
+    data = None
+
     if input_type == "url":
         if not url:
             st.write("No URL provided.")
             return
         data = link(url)
     elif input_type in ["pdf", "pptx"]:
+        file = st.file_uploader("Please upload a file", type=["pdf", "pptx"])
         if file is None:
             st.write("No file selected.")
             return
-        data = analyze_input(input_type, company, file)
-    else:
-        st.write(f"Invalid input type: {input_type}")
-        return
+
+        with file as f:
+            if input_type == "pdf":
+                text = read_pdf(f)
+            elif input_type == "pptx":
+                text = readppt.read_ppt(f)
+        data = recursive_analyze(text)
 
     if data is not None:
         company_data = []
@@ -331,15 +340,13 @@ def main():
     st.title("Analysis Application")
     input_type = st.selectbox("Select input type", ("url", "pdf", "pptx"))
     company = st.text_input("Enter company name")
-    url = None
-    file = None
     if input_type == "url":
         url = st.text_input("Enter a URL")
-    elif input_type in ["pdf", "pptx"]:
-        file = st.file_uploader("Please upload a file", type=[input_type])
+    else:
+        url = None
 
     if st.button("Run"):
-        run(input_type, company, url, file)
+        run(input_type, company, url)
 
 if __name__ == "__main__":
     main()
